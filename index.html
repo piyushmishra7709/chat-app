@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code-like Chat App</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #1e1e1e;
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        /* Sidebar on the left */
+        .sidebar {
+            width: 200px;
+            background-color: #252526;
+            padding: 15px;
+            color: #ffffff;
+            height: 100%;
+        }
+
+        /* Chat container */
+        .container {
+            display: flex;
+            height: 100vh;
+        }
+
+        /* Chat interface */
+        .chat-interface {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            padding: 10px;
+            background-color: #1e1e1e;
+        }
+
+        /* Message list */
+        #messages {
+            list-style-type: none;
+            padding: 0;
+            margin-top: 10px;
+            flex-grow: 1;
+            overflow-y: auto;
+            border: 1px solid #333;
+            padding: 10px;
+            background-color: #252526;
+        }
+
+        #messages li {
+            padding: 8px;
+            background-color: #333;
+            margin-bottom: 5px;
+            border-radius: 5px;
+            white-space: pre-wrap; /* Allows longer messages to wrap */
+        }
+
+        /* Input for messages */
+        #messageInput, #username {
+            padding: 10px;
+            background-color: #1e1e1e;
+            border: 1px solid #555;
+            color: #ffffff;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 16px;
+            margin-right: 5px;
+        }
+
+        /* Send button */
+        #sendMessage {
+            padding: 10px 15px;
+            background-color: #007acc;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 16px;
+        }
+
+        /* Flex container for input and button */
+        .input-container {
+            display: flex;
+            justify-content: space-between;
+            background-color: #252526;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <h2>Code-Like Chat</h2>
+            <p>Active Chat</p>
+        </div>
+        <div class="chat-interface">
+            <ul id="messages"></ul>
+            <div class="input-container">
+                <input id="username" placeholder="Enter your name" />
+                <input id="messageInput" autocomplete="off" placeholder="Type a message..." />
+                <button id="sendMessage">Send</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
